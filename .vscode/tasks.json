@@ -66,7 +66,7 @@
             "command": "powershell",
             "args": [
                 "-Command",
-                "Compress-Archive -Path '${fileDirname}\\${fileBasenameNoExtension}.exe' -DestinationPath '${fileDirname}\\${fileBasenameNoExtension}_v1.0.zip' -Force; Write-Host '✅ 打包完成: ${fileDirname}\\${fileBasenameNoExtension}_v1.0.zip'"
+                "Compress-Archive -Path '${fileDirname}\\${fileBasenameNoExtension}.exe' -DestinationPath '${fileDirname}\\${fileBasenameNoExtension}${input:version}.zip' -Force; Write-Host '✅ 打包完成: ${fileDirname}\\${fileBasenameNoExtension}${input:version}.zip'"
             ],
             "options": {
                 "cwd": "${fileDirname}"
@@ -82,5 +82,13 @@
             "detail": "先用发布版编译，再自动打包成 zip 文件。"
         }
     ],
-    "version": "2.0.0"
+    "version": "2.0.0",
+    "inputs": [
+        {
+            "id": "version",
+            "type": "promptString",
+            "description": "版本后缀（含下划线，如 _v1.0 会生成 xxx_v1.0.zip）",
+            "default": "_v1.0"
+        }
+    ]
 }
