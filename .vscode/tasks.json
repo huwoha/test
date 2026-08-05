@@ -23,7 +23,7 @@
             },
             "group": {
                 "kind": "build",
-                "isDefault": true
+                "isDefault": false
             },
             "detail": "开发版编译（快速、带调试信息、体积小、需要 MinGW DLL）。"
         },
