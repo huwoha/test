@@ -36,6 +36,8 @@
                 "-std=c++17",
                 "-O2",
                 "-static",
+                "-finput-charset=UTF-8",
+                "-fexec-charset=GBK",
                 "${file}",
                 "-o",
                 "${fileDirname}\\${fileBasenameNoExtension}.exe"
@@ -53,7 +55,7 @@
                 "kind": "build",
                 "isDefault": false
             },
-            "detail": "发布版编译（静态链接、开箱即用、无需额外 DLL、无调试信息）。"
+            "detail": "发布版编译（静态链接、GBK中文、开箱即用、无需额外 DLL、无调试信息）。"
         },
         {
             "label": "📦 一键打包 (编译+压缩)",
