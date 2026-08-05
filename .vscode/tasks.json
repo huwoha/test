@@ -54,6 +54,30 @@
                 "isDefault": false
             },
             "detail": "发布版编译（静态链接、开箱即用、无需额外 DLL、无调试信息）。"
+        },
+        {
+            "label": "📦 一键打包 (编译+压缩)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "C/C++: 发布版编译 (Release)"
+            ],
+            "command": "powershell",
+            "args": [
+                "-Command",
+                "Compress-Archive -Path '${fileDirname}\\${fileBasenameNoExtension}.exe' -DestinationPath '${fileDirname}\\${fileBasenameNoExtension}_v1.0.zip' -Force; Write-Host '✅ 打包完成: ${fileDirname}\\${fileBasenameNoExtension}_v1.0.zip'"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "presentation": {
+                "reveal": "always"
+            },
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "先用发布版编译，再自动打包成 zip 文件。"
         }
     ],
     "version": "2.0.0"
