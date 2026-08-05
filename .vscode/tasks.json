@@ -1,0 +1,60 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: 开发版编译 (Debug)",
+            "command": "C:/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "-std=c++17",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "开发版编译（快速、带调试信息、体积小、需要 MinGW DLL）。"
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: 发布版编译 (Release)",
+            "command": "C:/mingw64/bin/g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-std=c++17",
+                "-O2",
+                "-static",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "presentation": {
+                "reveal": "never"
+            },
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "detail": "发布版编译（静态链接、开箱即用、无需额外 DLL、无调试信息）。"
+        }
+    ],
+    "version": "2.0.0"
+}
